@@ -1,4 +1,9 @@
+
+
+
 # SQLicious
+
+![Demo](./sqlicious_demo.gif)
 
 SQLicious is a local AI chatbot and data interface project designed to automatically generate SQL queries and visualize data—no prior SQL or database knowledge required. It connects to a local MySQL database to retrieve and present information conversationally. It also includes a compatible [Claude Desktop](https://claude.ai) MCP server.
 
