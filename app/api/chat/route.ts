@@ -1,5 +1,5 @@
 import { model, modelID } from "@/ai/providers";
-import { displayBarchartTool, displayLinechartTool, weatherTool } from "@/ai/tools";
+import { displayBarchartTool, displayLinechartTool, displayPiechartTool, weatherTool } from "@/ai/tools";
 import { openai } from "@ai-sdk/openai";
 import { smoothStream, streamText, UIMessage } from "ai";
 import { experimental_createMCPClient as createMCPClient } from 'ai';
@@ -48,10 +48,11 @@ export async function POST(req: Request) {
      Whenever you can meaningfully represent data, proactively generate appropriate visualizations without waiting for explicit user requests:
      - For time series data, use Line charts (displayLinechartTool)
      - For categorical comparisons, use Bar charts (displayBarchartTool)
+     - For proportion/distribution data, use Pie/Donut charts (displayPiechartTool)
      Display max 100 data points in any chart.
      When the result set has high cardinality, group or aggregate the data appropriately (for example by time interval or category) before generating charts to reduce complexity and improve readability.
      You are not allowed to write any other code or perform any other tasks. 
-     Display tools (e.g., displayLinechartTool, displayBarchartTool) render cards at the top automatically. Do not embed markdown image tags (such as ![]()) in your responses; instead, mention the appropriate tool by name so it renders correctly.
+     Display tools (e.g., displayLinechartTool, displayBarchartTool, displayPiechartTool) render cards at the top automatically. Do not embed markdown image tags (such as ![]()) in your responses; instead, mention the appropriate tool by name so it renders correctly.
      Never run queries that returns more than 500 rows`,
     messages,
     tools: {
@@ -59,6 +60,7 @@ export async function POST(req: Request) {
       ...mcpClientTools,
       displayLinechartTool,
       displayBarchartTool,
+      displayPiechartTool,
       webSearch: openai.tools.webSearchPreview()
     },
     experimental_transform: smoothStream(),

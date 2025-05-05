@@ -40,3 +40,17 @@ export const displayBarchartTool = tool({
     return { title, data };
   },
 });
+
+export const displayPiechartTool = tool({
+  description: 'Display a pie/donut chart with the given data',
+  parameters: z.object({
+    title: z.string().describe('The title of the chart'),
+    data: z.array(z.object({
+      name: z.string().describe('The name/category of the data segment'),
+      value: z.number().describe('The value of the data segment'),
+    })).describe('The data segments for the pie chart'),
+  }),
+  execute: async ({ title, data }) => {
+    return { title, data };
+  },
+});

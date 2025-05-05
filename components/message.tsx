@@ -17,6 +17,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
 import { LineChartCard } from "./chart/LineChartCard";
 import { BarChartCard } from "./chart/BarChartCard";
+import { PieChartCard } from "./chart/PieChartCard";
 import { DefaultToolPlaceholder } from "./default-tool-placeholder";
 
 interface ReasoningPart {
@@ -186,6 +187,14 @@ const PurePreviewMessage = ({
 
                       return <div className="flex flex-col gap-4" key={`message-${message.id}-part-${i}`}>
                         <BarChartCard title={title} data={data} />
+                      </div>
+                    }
+                    
+                    if (toolName === "displayPiechartTool") {
+                      const { title, data } = part.toolInvocation.result || {};
+
+                      return <div className="flex flex-col gap-4" key={`message-${message.id}-part-${i}`}>
+                        <PieChartCard title={title} data={data} />
                       </div>
                     }
                   }
