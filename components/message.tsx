@@ -16,6 +16,7 @@ import { SpinnerIcon } from "./icons";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
 import { LineChartCard } from "./chart/LineChartCard";
+import { BarChartCard } from "./chart/BarChartCard";
 import { DefaultToolPlaceholder } from "./default-tool-placeholder";
 
 interface ReasoningPart {
@@ -178,6 +179,13 @@ const PurePreviewMessage = ({
 
                       return <div className="flex flex-col gap-4" key={`message-${message.id}-part-${i}`}>
                         <LineChartCard title={title} data={data} />
+                      </div>
+                    }
+                    if (toolName === "displayBarchartTool") {
+                      const { title, data } = part.toolInvocation.result || {};
+
+                      return <div className="flex flex-col gap-4" key={`message-${message.id}-part-${i}`}>
+                        <BarChartCard title={title} data={data} />
                       </div>
                     }
                   }
