@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json", // reuse common config
+  "compilerOptions": {
+    "outDir": "dist",
+    "noEmit": false,
+    "moduleResolution": "node", // <--- fix bundler conflict
+    "module": "CommonJS",        // safer for Node.js CLI tools
+    "target": "ES2020",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["mcp/**/*.ts"]
+}
