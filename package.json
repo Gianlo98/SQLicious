@@ -7,10 +7,12 @@
   "private": true,
   "scripts": {
     "dev": "pnpm -r exec concurrently \"pnpm mcp:server\" \"pnpm next dev --turbopack\"",
+    "dev:postgres": "pnpm -r exec concurrently \"pnpm mcp:server_postgres\" \"pnpm next dev --turbopack\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "mcp:server": "node mcp/mcp.ts",
+    "mcp:server_postgres": "node mcp/mcp_postgres.ts",
     "mcp:inspector": "npx @modelcontextprotocol/inspector"
   },
   "dependencies": {
@@ -41,6 +43,7 @@
     "motion": "^12.5.0",
     "mysql2": "^3.14.1",
     "next": "15.2.2",
+    "pg": "^8.15.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
@@ -55,6 +58,7 @@
     "@tailwindcss/postcss": "^4",
     "@types/express": "^5.0.1",
     "@types/node": "^20",
+    "@types/pg": "^8.11.14",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "concurrently": "^9.1.2",
