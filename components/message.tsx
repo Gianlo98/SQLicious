@@ -176,25 +176,25 @@ const PurePreviewMessage = ({
 
                   if (state == "result") {
                     if (toolName === "displayLinechartTool") {
-                      const { title, data } = part.toolInvocation.result || {};
+                      const { title, data, insights } = part.toolInvocation.result || {};
 
                       return <div className="flex flex-col gap-4" key={`message-${message.id}-part-${i}`}>
-                        <LineChartCard title={title} data={data} />
+                        <LineChartCard title={title} data={data} insights={insights} />
                       </div>
                     }
                     if (toolName === "displayBarchartTool") {
-                      const { title, data } = part.toolInvocation.result || {};
+                      const { title, data, insights } = part.toolInvocation.result || {};
 
                       return <div className="flex flex-col gap-4" key={`message-${message.id}-part-${i}`}>
-                        <BarChartCard title={title} data={data} />
+                        <BarChartCard title={title} data={data} insights={insights} />
                       </div>
                     }
                     
                     if (toolName === "displayPiechartTool") {
-                      const { title, data } = part.toolInvocation.result || {};
+                      const { title, data, insights } = part.toolInvocation.result || {};
 
                       return <div className="flex flex-col gap-4" key={`message-${message.id}-part-${i}`}>
-                        <PieChartCard title={title} data={data} />
+                        <PieChartCard title={title} data={data} insights={insights} />
                       </div>
                     }
                   }
