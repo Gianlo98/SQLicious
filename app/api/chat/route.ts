@@ -14,10 +14,11 @@ export async function POST(req: Request) {
     selectedModel,
   }: { messages: UIMessage[]; selectedModel: modelID } = await req.json();
 
+  const mcpServerAddress = process.env.MCP_SERVER_ADDRESS || "http://localhost:3010";
   const mcpClient = await createMCPClient({
     transport: {
       type: 'sse',
-      url: 'http://localhost:3010/sse',
+      url: `${mcpServerAddress}/sse`,
     },
   });
 
