@@ -1,6 +1,6 @@
 "use client";
 
-import { tool, type Message as TMessage } from "ai";
+import { type Message as TMessage } from "ai";
 import { AnimatePresence, motion } from "motion/react";
 import { memo, useCallback, useEffect, useState } from "react";
 import equal from "fast-deep-equal";
@@ -8,13 +8,9 @@ import equal from "fast-deep-equal";
 import { Markdown } from "./markdown";
 import { cn } from "@/lib/utils";
 import {
-  CheckCircle,
   ChevronDownIcon,
   ChevronUpIcon,
-  Loader2,
-  PocketKnife,
   SparklesIcon,
-  StopCircle,
 } from "lucide-react";
 import { SpinnerIcon } from "./icons";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";

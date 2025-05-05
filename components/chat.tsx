@@ -8,7 +8,7 @@ import { ProjectOverview } from "./project-overview";
 import { Messages } from "./messages";
 
 export default function Chat() {
-  const [selectedModel, setSelectedModel] = useState<modelID>("openai");
+  const [selectedModel] = useState<modelID>("openai");
   const {
     messages,
     input,
